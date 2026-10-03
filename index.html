@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kyndy · Helados artesanales</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--wood:#3b160b;--wood2:#5a2614;--red:#e0391f;--pink:#ec86b0;--yel:#ffe933;--teal:#1fb5b8;--cream:#fdf3d9;--ink:#3b160b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Fredoka,system-ui,sans-serif;font-size:18px;line-height:1.5;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.05}
+a{color:inherit}
+.btn{display:inline-block;padding:14px 26px;border-radius:99px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:600 17px Fredoka,sans-serif;transition:transform .25s cubic-bezier(.3,1.8,.5,1),box-shadow .25s}
+.btn:hover{transform:translateY(-4px) rotate(-2deg) scale(1.05)}.btn:focus-visible,.tab:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.b-y{background:var(--yel);color:var(--wood);box-shadow:0 6px 0 #c9b300}.b-o{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff8}
+/* HERO */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:90px 20px 150px;color:#fff;overflow:hidden;
+background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .45' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .03 0 0 0 0 0 0 0 0 .55 -.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),radial-gradient(ellipse at 50% 35%,#7a3419,var(--wood) 75%)}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:110px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 110' preserveAspectRatio='none'%3E%3Cpath fill='%23fdf3d9' d='M0 60C120 10 240 10 360 50s240 55 360 20 240-60 360-30 240 50 360 10v100H0z'/%3E%3C/svg%3E") center/100% 100%}
+.stack{position:relative;width:min(300px,64vw);aspect-ratio:1/.9;margin:0 auto 4px;--mx:0;--my:0}
+.sc{position:absolute;width:52%;aspect-ratio:1;animation:drop 1.1s both}
+.sc i{position:absolute;inset:0;border-radius:50%;animation:fl 4s ease-in-out infinite;transform:translate(calc(var(--mx)*var(--d)*18px),calc(var(--my)*var(--d)*18px));box-shadow:inset -10px -14px 0 #0002,0 14px 24px #0005}
+.sc i:after{content:"";position:absolute;left:18%;top:14%;width:26%;height:18%;border-radius:50%;background:#fff6;transform:rotate(-30deg)}
+.sc.p{left:0;bottom:0;--d:1;animation-delay:.2s}.sc.p i{background:var(--pink)}
+.sc.y{right:0;bottom:0;--d:1.4;animation-delay:.5s}.sc.y i{background:var(--yel);animation-delay:-1s}
+.sc.r{left:24%;top:0;--d:2;animation-delay:.85s}.sc.r i{background:var(--red);animation-delay:-2s}
+@keyframes drop{0%{transform:translateY(-120vh) scale(.9,1.25)}55%{transform:translateY(0) scale(1.18,.8)}70%{transform:translateY(-34px) scale(.94,1.06)}85%{transform:translateY(0) scale(1.05,.95)}100%{transform:none}}
+@keyframes fl{50%{margin-top:-9px}}
+h1{font-weight:900;font-size:clamp(70px,19vw,210px);letter-spacing:.02em;display:flex;justify-content:center;text-shadow:0 8px 0 #0004}
+h1 span{display:inline-block;animation:up .9s cubic-bezier(.2,1.6,.4,1) both;animation-delay:calc(1.5s + var(--i)*.09s)}
+h1 span:hover{animation:wob .5s}
+@keyframes up{from{transform:translateY(120%) rotate(14deg);opacity:0}}
+@keyframes wob{40%{transform:translateY(-20px) rotate(-8deg) scale(1.1)}}
+.sub{display:flex;align-items:center;gap:14px;justify-content:center;font-family:Fraunces,serif;letter-spacing:.2em;font-size:clamp(13px,2.6vw,22px);margin:6px auto 14px;animation:fade 1s 2.2s both}
+.sub:before,.sub:after{content:"";height:2px;width:min(90px,12vw);background:#fff9}
+.tag{font-size:clamp(19px,3vw,26px);margin:0 0 28px;animation:fade 1s 2.4s both}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fade 1s 2.6s both}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}}
+.sp{position:absolute;top:-5vh;width:7px;height:20px;border-radius:5px;animation:sp linear infinite;opacity:.85;pointer-events:none}
+@keyframes sp{to{transform:translateY(115vh) rotate(420deg)}}
+.dot{position:absolute;width:18px;height:18px;border-radius:50%;pointer-events:none;animation:dt .8s forwards;z-index:3}
+@keyframes dt{to{transform:translateY(40px) scale(0);opacity:0}}
+/* MARQUEE */
+.mq{background:var(--teal);color:#fff;overflow:hidden;white-space:nowrap;transform:rotate(-1.5deg);margin:-30px -10px 0;padding:14px 0;position:relative;z-index:2;box-shadow:0 8px 0 #0002}
+.mq div{display:inline-block;animation:mq 40s linear infinite;font:700 26px Fraunces,serif}
+.mq b{display:inline-block;width:14px;height:14px;border-radius:50%;margin:0 22px;vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:90px 20px;max-width:1100px;margin:auto}
+.h2{font-size:clamp(38px,7vw,72px);font-weight:900;margin-bottom:12px}
+.lead{max-width:56ch;margin:0 0 30px}
+/* SABORES */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.tab{padding:10px 20px;border-radius:99px;border:2px solid var(--wood);background:transparent;font:500 17px Fredoka,sans-serif;color:var(--wood);cursor:pointer;transition:.2s}
+.tab[aria-selected=true]{background:var(--wood);color:var(--yel);transform:scale(1.07) rotate(-2deg)}
+#chips{display:flex;flex-wrap:wrap;gap:10px;min-height:150px}
+.chip{padding:9px 18px;border-radius:99px;font-weight:500;animation:pop .5s cubic-bezier(.2,1.8,.4,1) both;animation-delay:calc(var(--i)*25ms);transition:transform .2s}
+.chip:hover{transform:scale(1.12) rotate(3deg)}
+@keyframes pop{from{transform:scale(0) rotate(-20deg);opacity:0}}
+.c0{background:#ffd9cf}.c1{background:#fbd0e1}.c2{background:#fff3a0}.c3{background:#c4efef}
+.sug{margin-top:30px;padding:22px;border-radius:26px;background:var(--wood);color:#fff}
+.sug h3{font-size:28px;margin-bottom:12px;color:var(--yel)}.sug .chip{background:var(--pink);color:var(--wood);font-weight:600}
+.pickbox{margin-top:34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+#pick{font:900 clamp(26px,5vw,44px) Fraunces,serif;color:var(--red);min-height:1.2em}
+#pick.go{animation:wob .4s}
+/* PROMOS */
+.promos{background:var(--wood);max-width:none;color:#fff;border-radius:60px 60px 0 0;position:relative}
+.promos>*{max-width:1100px;margin-left:auto;margin-right:auto}
+.row{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 4px 30px;perspective:900px}
+.card{flex:0 0 min(300px,78vw);scroll-snap-align:center;background:var(--cream);border-radius:22px;padding:10px;color:var(--ink);text-align:center;transition:transform .15s;transform:rotateX(var(--rx,0)) rotateY(var(--ry,0));will-change:transform;box-shadow:0 20px 40px #0006}
+.card img{width:100%;border-radius:14px;display:block}.card .btn{margin:12px 0 4px;padding:10px 20px;font-size:16px}
+/* GALERIA */
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.gal figure{margin:0;border-radius:30px;overflow:hidden;position:relative;background:#fff;transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.gal figure:nth-child(odd){transform:rotate(-2deg)}.gal figure:nth-child(even){transform:rotate(2deg) translateY(16px)}
+.gal figure:hover{transform:rotate(0) scale(1.05);z-index:2}
+.gal img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:transform .6s}.gal figure:hover img{transform:scale(1.1)}
+.gal figcaption{position:absolute;left:12px;bottom:12px;background:var(--yel);padding:6px 16px;border-radius:99px;font-weight:600}
+/* DONDE */
+.where{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:center}
+.box{background:var(--teal);color:#fff;border-radius:34px;padding:34px;position:relative;overflow:hidden}
+.box:before,.box:after{content:"";position:absolute;border-radius:50%;opacity:.9}
+.box:before{width:120px;height:120px;background:var(--pink);right:-30px;top:-30px}.box:after{width:80px;height:80px;background:var(--yel);right:50px;top:-20px}
+.box h3{font-size:34px;margin-bottom:8px}.box p{margin:0 0 18px}
+.soc{display:flex;flex-direction:column;gap:12px}
+.soc a{display:flex;justify-content:space-between;padding:16px 24px;border-radius:99px;color:#fff;text-decoration:none;font-weight:600;transition:transform .25s cubic-bezier(.3,1.8,.5,1)}
+.soc a:hover{transform:translateX(10px) scale(1.03)}
+footer{background:var(--wood);color:#fff9;text-align:center;padding:40px 20px 100px}
+footer b{color:var(--yel);font:900 34px Fraunces,serif}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;z-index:9;text-decoration:none;font-size:30px;animation:pl 2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 #25d36699}100%{box-shadow:0 0 0 24px #25d36600}}
+.rv{opacity:0;transform:translateY(40px) scale(.97);transition:1s cubic-bezier(.2,1,.3,1)}.rv.on{opacity:1;transform:none}
+.mas{columns:3 230px;column-gap:16px}.mas figure{margin:0 0 16px;break-inside:avoid;border-radius:4px;overflow:hidden;cursor:zoom-in;background:#fff}
+.mas img{width:100%;display:block;transition:transform .7s}.mas figure:hover img{transform:scale(1.06)}
+.where{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));align-items:stretch}
+.loc{position:relative;display:block;border-radius:4px;overflow:hidden;min-height:340px;box-shadow:0 30px 50px #3b160b40}.loc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s}.loc:hover img{transform:scale(1.05)}
+.pin{position:absolute;left:16px;bottom:16px;background:var(--cream);padding:10px 18px;border-radius:2px;font-weight:500;display:flex;align-items:center;gap:10px}
+.pin b{width:14px;height:14px;border-radius:50% 50% 50% 0;background:var(--red);transform:rotate(-45deg);animation:pinb 1.6s ease-in-out infinite}
+@keyframes pinb{50%{transform:rotate(-45deg) translate(-4px,4px)}}
+#lb{position:fixed;inset:0;background:#1a0a05ee;display:grid;place-items:center;z-index:30;cursor:zoom-out;padding:20px}#lb[hidden]{display:none}#lb img{max-width:100%;max-height:100%;border-radius:4px;animation:fade .3s}
+/* ===== ELEGANTE ===== */
+body{font-family:Jost,system-ui,sans-serif;font-weight:400;font-size:18px}
+.btn,.tab{font-family:Jost,sans-serif}
+.btn{border-radius:2px;padding:15px 34px;font-size:15px;font-weight:500;letter-spacing:.08em}
+.btn:hover{transform:translateY(-2px)}
+.b-y{background:var(--cream);color:var(--wood);box-shadow:none}.b-o{box-shadow:inset 0 0 0 1px #fffa}
+.hero{box-shadow:inset 0 0 220px #000b}
+.stack{width:min(190px,48vw)}
+.sc i{box-shadow:inset -6px -8px 0 #0002,0 18px 30px #0006}
+@keyframes drop{0%{transform:translateY(-70vh);opacity:0}55%{opacity:1;transform:translateY(0)}75%{transform:translateY(-10px)}100%{transform:none;opacity:1}}
+.sc{animation-duration:1.7s;animation-timing-function:cubic-bezier(.3,.7,.4,1)}
+h1{font-weight:600;letter-spacing:.07em;font-size:clamp(64px,15vw,170px);text-shadow:none}
+h1 span:hover{animation:none}
+.sub{letter-spacing:.38em;font-size:clamp(11px,2vw,15px);font-weight:300;font-family:Jost,sans-serif}
+.tag{font-family:Fraunces,serif;font-style:italic;font-weight:400;font-size:clamp(20px,3vw,28px)}
+.sp,.dot{display:none!important}
+.mq{transform:none;margin:0;background:var(--cream);color:var(--wood);box-shadow:none;border-block:1px solid #3b160b30;padding:18px 0}
+.mq div{font:italic 400 24px Fraunces,serif;animation-duration:70s}
+.mq b{width:7px;height:7px;margin:0 30px}
+.h2{font-weight:600;font-size:clamp(36px,6vw,64px);letter-spacing:-.01em}
+.lead{opacity:.8;font-weight:300}
+.tab{border:0;border-radius:0;background:none;padding:6px 0;margin-right:22px;border-bottom:2px solid transparent}
+.tab[aria-selected=true]{background:none;color:var(--wood);transform:none;border-bottom-color:var(--red)}
+.chip{background:transparent!important;border:1px solid #3b160b33;border-radius:2px;padding:8px 16px;font-weight:400}
+.chip:hover{transform:none;border-color:var(--red)}
+.sug{border-radius:4px;padding:34px}.sug h3{font-weight:600}.sug .chip{border-color:#fff4;color:#fff}
+#rnd{background:var(--wood)!important;color:var(--cream)!important;box-shadow:none!important}
+#pick{font:italic 400 clamp(26px,5vw,42px) Fraunces,serif;color:var(--red)}
+.promos{border-radius:0}
+.card{border-radius:4px;padding:12px;box-shadow:0 30px 50px #0007}.card img{border-radius:2px}
+.card .btn{background:transparent;box-shadow:inset 0 0 0 1px var(--wood);padding:11px 24px}
+.gal figure,.gal figure:nth-child(odd),.gal figure:nth-child(even){transform:none;border-radius:4px}
+.gal figure:hover{transform:scale(1.02)}
+.gal figcaption{background:var(--cream);border-radius:2px;font-weight:400;font-style:italic;font-family:Fraunces,serif;left:14px;bottom:14px}
+.box{background:var(--wood);border-radius:4px;padding:46px}.box:before,.box:after{display:none}.box h3{font-weight:600}
+.soc a{background:transparent!important;color:var(--wood);border:1px solid #3b160b30;border-left-width:5px;border-radius:4px;font-weight:400}
+.soc a:nth-child(1){border-left-color:var(--pink)}.soc a:nth-child(2){border-left-color:var(--teal)}.soc a:nth-child(3){border-left-color:var(--yel)}
+.soc a:hover{transform:translateX(6px)}
+footer b{font-weight:600;letter-spacing:.1em}
+.fab{width:56px;height:56px;font-size:26px}
+/* ===== MODERNO ===== */
+.wai{width:1.25em;height:1.25em;flex:none}
+.b-g{background:#25d366;color:#fff;box-shadow:0 10px 30px #25d36655;display:inline-flex;align-items:center;gap:10px}.b-g:hover{box-shadow:0 14px 40px #25d36699}
+.btn{border-radius:99px}.btn.sm{padding:10px 20px}
+.nav{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);width:min(960px,calc(100% - 24px));z-index:20;display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 26px;border-radius:99px;background:#3b160b55;-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border:1px solid #ffffff26;color:#fff;transition:background .4s,box-shadow .4s}
+.nav.nv-on{background:#3b160bd9;box-shadow:0 12px 40px #0006}
+.logo{font:600 22px Fraunces,serif;letter-spacing:.08em;text-decoration:none}
+.nl{display:flex;gap:28px}.nl a{text-decoration:none;font-size:15px;opacity:.8;transition:opacity .2s}.nl a:hover{opacity:1}
+@media(max-width:680px){.nl{display:none}}
+body{background:linear-gradient(180deg,#fdf3d9,#fff9ea 40%,#fdf3d9)}
+.stack:before{content:"";position:absolute;inset:-70%;background:radial-gradient(circle,#ffe93330,#ec86b01f 40%,transparent 65%);animation:fl 6s ease-in-out infinite}
+#sabores,#donde{position:relative}
+#sabores:before{content:"";position:absolute;right:-120px;top:20px;width:380px;height:380px;background:radial-gradient(circle,#ec86b055,transparent 70%);z-index:-1}
+#donde:before{content:"";position:absolute;left:-120px;top:60px;width:380px;height:380px;background:radial-gradient(circle,#1fb5b844,transparent 70%);z-index:-1}
+.chip{background:#fff!important;border:1px solid #3b160b1a;border-radius:99px;box-shadow:0 2px 10px #3b160b10;transition:transform .25s,box-shadow .25s,border-color .25s}
+.chip:hover{transform:translateY(-3px);border-color:var(--pink);box-shadow:0 10px 24px #ec86b044}
+.sug{border-radius:24px;background:linear-gradient(135deg,var(--wood),#6a2f19)}.sug .chip{background:#ffffff14!important;border-color:#ffffff30;color:#fff;box-shadow:none}
+.tab[aria-selected=true]{border-bottom-color:var(--pink)}
+.card{border-radius:20px;transition:transform .15s,box-shadow .3s}.card img{border-radius:14px}.card:hover{box-shadow:0 30px 60px #0009}
+.mas figure,.gal figure{border-radius:18px;box-shadow:0 8px 24px #3b160b1a}
+.loc{border-radius:24px}.pin{border-radius:99px;background:#fdf3d9ee;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.box{border-radius:24px;background:linear-gradient(135deg,var(--wood),#6a2f19)}
+.soc a{border-radius:18px;background:#fff!important;box-shadow:0 4px 16px #3b160b0f;transition:transform .25s,box-shadow .25s}.soc a:hover{box-shadow:0 12px 28px #3b160b22}
+.soc a.wa{background:#25d366!important;color:#fff;border-color:#25d366;border-left-color:#128c4a;box-shadow:0 10px 28px #25d36655}
+.wl{display:inline-flex;align-items:center;gap:10px}
+.fab{background:#25d366;color:#fff;box-shadow:0 10px 30px #25d36688}.fab .wai{width:32px;height:32px}
+/* ===== PROMOS MEJORADAS ===== */
+.promos{padding-bottom:120px}
+.row{position:relative;scrollbar-width:none;scroll-padding-inline:20px;padding-inline:4px}.row::-webkit-scrollbar{display:none}
+.card{padding:0;overflow:hidden;border-radius:22px;background:#fdf3d9}
+.card img{border-radius:0;display:block;width:100%}
+.cf{padding:14px 16px 18px}
+.card .btn.b-g{width:100%;justify-content:center;background:#25d366;color:#fff;box-shadow:0 8px 22px #25d36655;padding:13px 18px;font-size:16px}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:4px}.dots i{width:8px;height:8px;border-radius:99px;background:#ffffff40;transition:.3s;cursor:pointer}.dots i.on{width:26px;background:var(--yel)}
+@media(min-width:700px){.card{flex-basis:250px}.row{justify-content:center}.dots{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<header class="hero" id="hero">
+<div class="stack" id="stack"><div class="sc p"><i></i></div><div class="sc y"><i></i></div><div class="sc r"><i></i></div></div>
+<h1 aria-label="Kyndy"><span style="--i:0">K</span><span style="--i:1">Y</span><span style="--i:2">N</span><span style="--i:3">D</span><span style="--i:4">Y</span></h1>
+<div class="sub">HELADOS ARTESANALES</div>
+<p class="tag">¡Hay un sabor para cada momento!</p>
+<div class="cta"><a class="btn b-y" href="#sabores">Ver los sabores</a><a class="btn b-g" href="https://wa.me/5492665117783?text=%C2%A1Hola%20Kyndy!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener"><svg class="wai" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Pedir por WhatsApp</a></div>
+</header>
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="sabores" class="rv">
+<h2 class="h2">Todos nuestros sabores</h2>
+<p class="lead">Cremas, dulces de leche, chocolates y helados al agua. Elegí una categoría o dejá que la suerte decida.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div id="chips" role="tabpanel"></div>
+<div class="sug"><h3>Sugerencias</h3><div id="sug" style="display:flex;flex-wrap:wrap;gap:10px"></div></div>
+<div class="pickbox"><button class="btn b-y" id="rnd" style="background:var(--red);color:#fff;box-shadow:0 6px 0 #9a2412">Sorprendeme</button><div id="pick" aria-live="polite">¿Cuál te toca hoy?</div></div>
+</section>
+
+<section class="promos rv" id="promos">
+<h2 class="h2">Promos y packs</h2>
+<p class="lead">Packs de bombones helados, paletas y combos para llevar. Tocá el botón de cada promo para pedirla por WhatsApp.</p>
+<div class="row">
+<div class="card"><img src="img/p8.jpg" alt="Promo: 1/4 kg de helado de limón más lata de champaña Mumm, $9.000" loading="lazy"><div class="cf"><a class="btn b-g" target="_blank" rel="noopener" href="https://wa.me/5492665117783?text=Quiero%20la%20promo%20de%201%2F4%20kg%20de%20limon%20%2B%20Mumm"><svg class="wai" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Pedir promo</a></div></div>
+<div class="card"><img src="img/p5.jpg" alt="Caja de 12 bombones helados: almendrado, tricolor, tiramisú y mixta, $16.000" loading="lazy"><div class="cf"><a class="btn b-g" target="_blank" rel="noopener" href="https://wa.me/5492665117783?text=Quiero%20la%20caja%20de%2012%20bombones%20a%20%2416.000"><svg class="wai" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Pedir caja</a></div></div>
+<div class="card"><img src="img/p7.jpg" alt="3 bombón escocés más 3 bombón suizo, $22.500" loading="lazy"><div class="cf"><a class="btn b-g" target="_blank" rel="noopener" href="https://wa.me/5492665117783?text=Quiero%20el%20pack%20de%20bombon%20escoces%20y%20suizo%20a%20%2422.500"><svg class="wai" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Pedir pack</a></div></div>
+<div class="card"><img src="img/p6.jpg" alt="Paletas de agua uva, tutti frutti y limón: 2 por $1500" loading="lazy"><div class="cf"><a class="btn b-g" target="_blank" rel="noopener" href="https://wa.me/5492665117783?text=Quiero%20paletas%20de%20agua%202%20por%20%241500"><svg class="wai" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Pedir paletas</a></div></div>
+</div><div class="dots" id="dots"></div></section>
+
+<section class="rv" id="galeria"><h2 class="h2">Mirá lo que hay</h2><p class="lead">Tortas heladas, postres, copas y licuados. Tocá una foto para verla grande.</p>
+<div class="mas"><figure><img src="img/p9.jpg" alt="Tres licuados helados con crema y cacao" loading="lazy"></figure><figure><img src="img/p10.jpg" alt="Paletas de agua" loading="lazy"></figure><figure><img src="img/p11.jpg" alt="Paletas bañadas en chocolate" loading="lazy"></figure><figure><img src="img/g1.jpg" alt="Torta helada de crema con bolitas de chocolate" loading="lazy"></figure><figure><img src="img/g2.jpg" alt="Torta helada con galletitas y crema" loading="lazy"></figure><figure><img src="img/g4.jpg" alt="Torta helada con frutos rojos y crema" loading="lazy"></figure><figure><img src="img/g14.jpg" alt="Torta helada de frutilla con crema" loading="lazy"></figure><figure><img src="img/g15.jpg" alt="Torta helada tricolor con frutilla" loading="lazy"></figure><figure><img src="img/g16.jpg" alt="Torta helada de chocolate con galletitas" loading="lazy"></figure><figure><img src="img/g10.jpg" alt="Torta helada con almendras y cerezas" loading="lazy"></figure><figure><img src="img/g5.jpg" alt="Postre helado rectangular de chocolate y crema" loading="lazy"></figure><figure><img src="img/g6.jpg" alt="Postre helado rectangular bañado en almendras" loading="lazy"></figure><figure><img src="img/g17.jpg" alt="Postre helado tricolor con frutillas" loading="lazy"></figure><figure><img src="img/g11.jpg" alt="Bombón helado de chocolate con almendras y cereza" loading="lazy"></figure><figure><img src="img/g12.jpg" alt="Porción helada bañada en chocolate con hilos blancos" loading="lazy"></figure><figure><img src="img/g13.jpg" alt="Helado en cesta de barquillo con nueces y salsa" loading="lazy"></figure><figure><img src="img/g7.jpg" alt="Vasito de helado con menta" loading="lazy"></figure><figure><img src="img/g9.jpg" alt="Copa de helado de crema con duraznos y cereza" loading="lazy"></figure><figure><img src="img/g8.jpg" alt="Tres copas heladas con salsas y barquillo" loading="lazy"></figure><figure><img src="img/g3.jpg" alt="Tres licuados helados con salsas de colores" loading="lazy"></figure></div></section>
+<section class="rv" id="donde"><h2 class="h2">¿Dónde nos encontramos?</h2><p class="lead">Desde la rotonda de Merlo, por Avenida del Sol, al 550.</p>
+<div class="where"><a class="loc" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kyndy+Helados+Av.+del+Sol+550+Merlo" aria-label="Abrir la ubicación en Google Maps"><img src="img/local.jpg" alt="Frente del local Kyndy Helados con mesas en la vereda" loading="lazy"><span class="pin"><b></b>Kyndy Helados · Av. del Sol 550</span></a>
+<div><div class="box"><h3>Te esperamos</h3><p>Av. del Sol 550, Merlo. Tocá el botón y se abre Google Maps con el camino desde donde estés.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn b-y" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Kyndy+Helados+Av.+del+Sol+550+Merlo">Cómo llegar</a><a class="btn b-o" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kyndy+Helados+Av.+del+Sol+550+Merlo">Ver en Google Maps</a></div></div>
+<div class="soc" style="margin-top:16px">
+<a target="_blank" rel="noopener" href="https://instagram.com/kyndyhelados"><span>Instagram</span><span>@kyndyhelados</span></a>
+<a target="_blank" rel="noopener" href="https://www.facebook.com/search/top?q=Kyndy%20Helados"><span>Facebook</span><span>Kyndy Helados</span></a>
+<a class="wa" target="_blank" rel="noopener" href="https://wa.me/5492665117783"><span class="wl"><svg class="wai" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</span><span>2665117783</span></a></div></div></div></section>
+<div id="lb" hidden><img alt=""></div>
+<footer><b>Kyndy</b><br>Helados artesanales · Av. del Sol 550</footer>
+<a class="fab" href="https://wa.me/5492665117783" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><svg class="wai" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+
+<script>
+const D={"Cremas":["Americana","Granizado","Tramontana","Vainilla","Vainilla con pasas","Almendrado","Frutilla con frutillas","Crema Kindi","Crema Flan","Crema del cielo","Crema rusa","Crema de cerezas","Crema Oreo","Crema Rocklets","Higos a la crema","Kinotos al whisky","Chantilly con naranjas al cointreau","Imperial","Arándanos","Frutos del bosque","Mascarpone con frutos rojos","Tiramisú","Sambayón","Marrón","Mantecol","Banana split","Menta granizada","Pistacho","Mousse de limón"],
+"Dulces de leche":["Dulce de leche","Dulce de leche granizado","Dulce de leche con nuez","Super dulce de leche","Coco con dulce de leche","Vainilla con dulce de leche"],
+"Chocolates":["Mousse de chocolate","Chocolate","Chocolate Kindi","Chocolate con almendras","Chocolate con nuez","Chocolate con pasas","Chocolate amargo","Chocolate tofi","Chocolate blanco","Chocotorta"],
+"Al agua":["Frutilla","Limón","Limón con frutillas","Pomelo rosado","Naranja","Mandarina","Durazno","Ananá","Manzana verde","Maracuyá"]};
+const SUG=["Chocolate Dubai","Nutella","Selva Negra","Frambuesa","Lemon Crunch","Limón especial"];
+const $=s=>document.querySelector(s),cols=["#e0391f","#ec86b0","#ffe933","#1fb5b8"],all=Object.values(D).flat();
+const chip=(t,i)=>`<span class="chip c${i%4}" style="--i:${i}">${t}</span>`;
+function show(k){document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.k==k));$('#chips').innerHTML=D[k].map(chip).join('')}
+$('#tabs').innerHTML=Object.keys(D).map(k=>`<button class="tab" role="tab" data-k="${k}">${k}</button>`).join('');
+$('#tabs').onclick=e=>e.target.dataset.k&&show(e.target.dataset.k);show("Cremas");
+$('#sug').innerHTML=SUG.map(chip).join('');
+$('#mq').innerHTML=[...all,...all].map((t,i)=>t+`<b style="background:${cols[i%4]}"></b>`).join('');
+$('#rnd').onclick=e=>{let n=0,p=$('#pick');const t=setInterval(()=>{p.textContent=all[Math.random()*all.length|0];p.classList.remove('go');void p.offsetWidth;p.classList.add('go');if(++n>14){clearInterval(t);boom(e.clientX,e.clientY)}},80)};
+function boom(x,y){for(let i=0;i<24;i++){const d=document.createElement('i');d.style.cssText=`position:fixed;left:${x}px;top:${y}px;width:10px;height:10px;border-radius:50%;background:${cols[i%4]};z-index:20;pointer-events:none`;document.body.appendChild(d);const a=i/24*6.28,r=60+Math.random()*90;d.animate([{transform:'none',opacity:1},{transform:`translate(${Math.cos(a)*r}px,${Math.sin(a)*r+40}px) scale(.2)`,opacity:0}],{duration:900,easing:'cubic-bezier(.2,.8,.3,1)'}).onfinish=()=>d.remove()}}
+const h=$('#hero');
+for(let i=0;i<30;i++){const s=document.createElement('i');s.className='sp';s.style.cssText=`left:${Math.random()*100}%;background:${cols[i%4]};animation-duration:${8+Math.random()*9}s;animation-delay:-${Math.random()*14}s`;h.appendChild(s)}
+let last=0;h.addEventListener('pointermove',e=>{const r=h.getBoundingClientRect(),st=$('#stack');st.style.setProperty('--mx',(e.clientX-r.left)/r.width*2-1);st.style.setProperty('--my',(e.clientY-r.top)/r.height*2-1);const n=Date.now();if(n-last>50){last=n;const d=document.createElement('i');d.className='dot';d.style.cssText=`left:${e.clientX-r.left-9}px;top:${e.clientY-r.top-9}px;background:${cols[n%4]}`;h.appendChild(d);setTimeout(()=>d.remove(),800)}});
+document.querySelectorAll('.card').forEach(c=>{c.onpointermove=e=>{const r=c.getBoundingClientRect();c.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*14+'deg');c.style.setProperty('--rx',-((e.clientY-r.top)/r.height-.5)*14+'deg')};c.onpointerleave=()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')}});
+const io=new IntersectionObserver(a=>a.forEach(x=>x.isIntersecting&&x.target.classList.add('on')),{threshold:0,rootMargin:'0px 0px -5% 0px'});document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+document.querySelectorAll('.mas img').forEach(i=>i.onclick=()=>{const l=document.querySelector('#lb');l.firstChild.src=i.src;l.hidden=false});
+document.querySelector('#lb').onclick=e=>e.currentTarget.hidden=true;addEventListener('keydown',e=>e.key=='Escape'&&(document.querySelector('#lb').hidden=true));
+const rw=document.querySelector('.row'),cs=[...rw.children],dt=document.getElementById('dots');dt.innerHTML=cs.map(()=>'<i></i>').join('');const ds=[...dt.children];
+function up(){const c=rw.scrollLeft+rw.clientWidth/2;let b=0,m=1e9;cs.forEach((e,i)=>{const d=Math.abs(e.offsetLeft+e.offsetWidth/2-c);if(d<m){m=d;b=i}});ds.forEach((d,i)=>d.classList.toggle('on',i==b))}
+rw.addEventListener('scroll',up,{passive:true});up();ds.forEach((d,i)=>d.onclick=()=>cs[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}));
+</script></body></html>
